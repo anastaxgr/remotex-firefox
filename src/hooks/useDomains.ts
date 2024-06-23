@@ -1,20 +1,31 @@
 import { useState, useEffect } from 'react';
 
+import { IDomain } from '../interfaces';
+
 const useDomains = () => {
-    const [domains, setDomains] = useState([]);
+    const [domains, setDomains] = useState<IDomain[]>([])
+
+    interface savedDomains {
+        domain:string;
+        secret: string;
+    }
 
     useEffect(() => {
-        const storedDomains = JSON.parse(localStorage.getItem('domains')) || [];
+        const storedDomains = JSON.parse(localStorage.getItem('domains'));
         setDomains(storedDomains);
     }, []);
 
-    const addDomain = (domain) => {
-        const updatedDomains = [...domains, domain];
+
+    // insert new domain to list
+    const addDomain = (domain: IDomain) => {
+        const updatedDomains = [...domains, domain ];
         setDomains(updatedDomains);
         localStorage.setItem('domains', JSON.stringify(updatedDomains));
     };
 
-    const removeDomain = (domain) => {
+
+    // delete a saved domain
+    const removeDomain = (domain:IDomain) => {
         const updatedDomains = domains.filter(d => d !== domain);
         setDomains(updatedDomains);
         localStorage.setItem('domains', JSON.stringify(updatedDomains));
