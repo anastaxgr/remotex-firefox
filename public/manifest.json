@@ -1,0 +1,17 @@
+{
+  "name": "Remotex",
+  "description": "Manage multiple WordPress sites.",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "homepage_url": "https://github.com/anastaxgr/remotex-firefox",
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_title": "Remotex",
+    "default_icon": {
+      "48": "remotex-48.png"
+    }
+  },
+  "icons": {
+    "48": "remotex-48.png"
+  }
+}
